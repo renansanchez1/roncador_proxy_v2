@@ -3,15 +3,7 @@ const cors = require("cors");
 
 const app = express();
 
-/* ╔══════════════════════════════════════════════════════════════════╗
-   ║  VARIÁVEIS DE AMBIENTE (configurar no Railway)                   ║
-   ╠══════════════════════════════════════════════════════════════════╣
-   ║  LOGIX_API_BASE_URL  — URL base da API Logix (sem / no final)   ║
-   ║  LOGIX_API_KEY       — Chave X-API-Key da API Logix             ║
-   ║  ALLOWED_ORIGINS     — Origens permitidas, separadas por vírgula║
-   ║                        Ex.: https://roncador.zendesk.com        ║
-   ║  PORT                — Porta (Railway preenche automaticamente)  ║
-   ╚══════════════════════════════════════════════════════════════════╝ */
+
 const {
   LOGIX_API_BASE_URL,
   LOGIX_API_KEY,
@@ -30,9 +22,7 @@ if (!LOGIX_API_BASE_URL || !LOGIX_API_KEY) {
   process.exit(1);
 }
 
-/* ---------- CORS ----------
-   Aceita múltiplas origens separadas por vírgula.
-   Se ALLOWED_ORIGINS estiver vazio, aceita qualquer origem (dev only). */
+
 const origensPermitidas = ALLOWED_ORIGINS
   ? ALLOWED_ORIGINS.split(",").map((s) => s.trim()).filter(Boolean)
   : null;
