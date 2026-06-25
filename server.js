@@ -102,7 +102,9 @@ app.get("/v1/zendesk/*", rateLimiter, async (req, res) => {
     return res.status(404).json({ error: "Rota não permitida." });
   }
 
-  const targetUrl = LOGIX_API_BASE_URL + apiPath;
+  // Repassa query string (ex.: ?DEN_ITEM=PNEU) para a API Logix
+  const queryString = new URLSearchParams(req.query).toString();
+  const targetUrl = LOGIX_API_BASE_URL + apiPath + (queryString ? "?" + queryString : "");
 
   try {
     const apiRes = await fetch(targetUrl, {
