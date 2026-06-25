@@ -86,6 +86,8 @@ const ROTAS_PERMITIDAS = [
   /^\/v1\/zendesk\/natureza-operacao$/,
   /^\/v1\/zendesk\/transportadoras$/,
   /^\/v1\/zendesk\/notas-fiscais\/[^/]+$/,
+  /^\/v1\/zendesk\/items$/,
+  /^\/v1\/zendesk\/items\/logix$/,
 ];
 
 function rotaPermitida(path) {
